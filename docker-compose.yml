@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    environment:
+      PORT: 8000
+      SPAM_DETECTOR_DB: /data/spam_detector.sqlite3
+    volumes:
+      - sqlite_data:/data
+    ports:
+      - "8000:8000"
+
+volumes:
+  sqlite_data:
